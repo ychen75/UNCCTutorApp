@@ -11,6 +11,24 @@ var express = require('express')
 
 var app = express();
 
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/uncctutorapp');
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback () {
+  console.log('connection is open');
+});
+
+var tutorSchema = mongoose.Schema({ name: 'string' });
+var Tutor = mongoose.model('Tutor', tutorSchema);
+
+var dimitrius = new Tutor({ name: 'Dimitrius' });
+dimitrius.save(function (err) {
+  if (err) // ...
+  console.log('hello');
+});
+
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
