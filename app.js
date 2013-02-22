@@ -39,3 +39,16 @@ app.get('/about', routes.about);
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
+
+mongoose.connect('mongodb://localhost/test');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error'));
+db.once('open', function callback() {
+//define schema
+    var UserSchema = new Schema({
+      name:     String,
+      isTutor:  Boolean,
+      messages:  String
+   });
+
+});
