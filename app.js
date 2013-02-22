@@ -7,7 +7,8 @@ var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , mongoose = require('mongoose');
 
 var app = express();
 
@@ -30,8 +31,10 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
+//define new routes here
 app.get('/', routes.index);
 app.get('/users', user.list);
+app.get('/about', routes.about);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
