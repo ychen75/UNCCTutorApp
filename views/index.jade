@@ -1,6 +1,15 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  p Hello there #{whatever}
+  #contentWrapper
+    #titleBar
+      a(href='#', id='trayToggleOpen')
+      h1 Tutor Tracker
+    #searchWrapper
+      input(type='text')#searchBar
+      a(href='#', id='searchButton')
+    #tileNotifications
+      a(href='#', id='tutorTitle', class='liveTile') Tutors
+      a(href='#', id='locationTile', class='liveTile') Locations
+      a(href='#', id='scheduleTile', class='liveTile') Schedule
+      a(href='#', id='messageTile', class='liveTile') Messages
