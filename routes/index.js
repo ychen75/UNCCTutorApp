@@ -1,12 +1,17 @@
-
-/*
- * GET home page.
- */
-
+// INDEX
 exports.index = function(req, res){
-  res.render('index', { title: 'Express', whatever: 'Andrew'});
+  var username = (req.session.loggedIn) ? req.session.name : 'Not logged in';
+  res.render('index', { title: 'Express', username: username});
 };
 
-exports.about = function(req, res) {
-  res.render('about', { title: 'About UNCC Tutor App' });
+// LOGIN
+exports.login = function(req, res){
+  req.session.loggedIn = req.session.loggedIn || false;
+  if (req.session.loggedIn)
+    res.redirect('/');
+  else
+    res.render('login', {
+      title: 'Login Please',
+      msg: ""
+    });
 };

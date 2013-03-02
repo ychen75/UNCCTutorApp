@@ -10,6 +10,7 @@
 		"mongoose": "3.5.x",
     "jade": "*",
     "stylus": "*",
-		"supervisor": "0.5.x"	
+		"supervisor": "0.5.x",	
+    "connect-mongo": "*"
 	}
 }

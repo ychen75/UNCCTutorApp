@@ -13,3 +13,7 @@ block content
       a(href='#', id='locationTile', class='liveTile') Locations
       a(href='#', id='scheduleTile', class='liveTile') Schedule
       a(href='#', id='messageTile', class='liveTile') Messages
+    #username= username
+    p Logout
+    form(action='/logout', method='post')
+      input(type='submit')
