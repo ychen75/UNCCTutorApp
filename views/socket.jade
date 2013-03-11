@@ -1,0 +1,18 @@
+extends layout
+block append scripts
+  script(src='/socket.io/socket.io.js')
+  script
+    $(function(){
+      var socket = io.connect('http://localhost');
+      $('#sendBtn').click(function() {
+        var data = { data: $('#testInput').val() };
+        socket.emit('moreNews', data);
+        $('#testInput').val('');
+      });
+    });
+
+block content
+  p Testing socket.io
+  input(type='text', id='testInput')
+  a#sendBtn(href='#') Send Message
+  #msgWrapper

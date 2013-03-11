@@ -12,8 +12,8 @@ var express = require('express')
 /***********************
  *    CONFIGURATION    *
  ***********************/
-var app = express();
-var conf = db.conf;
+var app = express();  // Create express server
+var conf = db.conf; // Import database configuration
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
@@ -27,7 +27,7 @@ app.configure(function(){
   app.use(express.session({
     secret: conf.secret,
     store: new MongoStore(conf.db),
-    cookie: { maxAge: 60000 } // Expires after 1 minute
+    cookie: { maxAge: 3600000 } // Expires after 1 hour
   }));
   app.use(app.router);
   app.use(require('stylus').middleware(__dirname + '/public'));
@@ -38,21 +38,35 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
+/**********************
+ *    Create Server     *
+ **********************/
+var server = http.createServer(app).listen(app.get('port'), function(){
+  console.log("Express server listening on port " + app.get('port'));
+});
+
 /******************
  *     ROUTES     *
  ******************/
-app.get('/', routes.index);
 app.get('/login', routes.login);
+app.get('/messages', routes.messages);
+app.get('/messages/:id', routes.message);
+app.get('/register', routes.register);
+app.get('/test', routes.test);
+app.get('/:user', routes.user);
+app.get('/', routes.index);
 
 /********************
  *      POSTS       *
  ********************/
 app.post('/login', postActions.login);
 app.post('/logout', postActions.logout);
+app.post('/register', postActions.register);
+app.post('/newMessage', postActions.newMessage);
+app.post('/test', postActions.test);
 
-/**********************
- *    FINAL SETUP     *
- **********************/
-http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port " + app.get('port'));
-});
+/********************
+ *    Socket.io     *
+ ********************/
+exports.io = require('socket.io').listen(server, { log: false });
+var socketFunctions = require('./routes/socketFunctions');

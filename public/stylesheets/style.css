@@ -1,6 +1,9 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+.hidden {
+  display: none;
+}
 div,
 a,
 h1,
@@ -63,4 +66,47 @@ a {
 }
 #username {
   text-align: center;
+}
+#messageWrapper {
+  width: 600px;
+  border-top: 1px solid #000;
+}
+.post {
+  width: 100%;
+  border: 1px solid #000;
+  border-top: none;
+}
+ul.msgInfo {
+  width: 100%;
+  padding: 20px;
+  margin: 0;
+}
+ul.msgInfo li {
+  display: inline-block;
+}
+li.poster {
+  width: 120px;
+}
+li.postTime {
+  width: 150px;
+}
+li.postText {
+  width: 330px;
+}
+.messageBlock {
+  display: block;
+  border: 1px solid #000;
+}
+.messageBlock:hover,
+.messageBlock:active {
+  color: #000;
+}
+.removeMember {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #000;
+}
+.ui-helper-hidden-accessible {
+  display: none;
 }

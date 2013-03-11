@@ -11,6 +11,7 @@
     "jade": "*",
     "stylus": "*",
 		"supervisor": "0.5.x",	
-    "connect-mongo": "*"
+    "connect-mongo": "*",
+    "socket-io": "*"
 	}
 }
