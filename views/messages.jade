@@ -13,6 +13,7 @@ block content
     input#autocomplete
     input#members(type='hidden', name='members')
     input(type='submit', value='Start it!')
+  span#warning
   ul#conversationMembers
   
 block append scripts
@@ -51,19 +52,28 @@ block append scripts
             return false;  
         },
         select: function(event, ui) {
-            $(this).val('');
-            var memberList = $('#conversationMembers');
-            members.push(ui.item.value);
-            memberList.append("<li>" + ui.item.label + "<a id='member" + members.length + "' class='removeMember'></a></li>");
-            memberList.children("li:last").children().click(function() {
-                var index = $(this).attr('id').substring(6);
-                members.splice(index, 1);
-                $(this).parent().remove();
-                memberList.children('li').children().attr("id", function(index) {
-                    return 'member' + index + 1; 
-                });
-            });
-            return false;
+          if (ui.item.value != members[0]) {
+            if (members.indexOf(ui.item.value) == -1) {
+              var memberList = $('#conversationMembers');
+              members.push(ui.item.value);
+              memberList.append("<li>" + ui.item.label + "<a id='member" + members.length + "' class='removeMember'></a></li>");
+              memberList.children("li:last").children().click(function() {
+                  var index = $(this).attr('id').substring(6);
+                  members.splice(index, 1);
+                  $(this).parent().remove();
+                  memberList.children('li').children().attr("id", function(index) {
+                      return 'member' + index + 1; 
+                  });
+              });
+              $(this).val('');
+            }
+            else
+              $('#warning').text('User already added.').show().fadeOut(3000);
+          }
+          else
+            $('#warning').text('If you want to talk to yourself, just start a conversation with nobody selected.').show().fadeOut(5000);
+            
+          return false;
         }
       });
     });
