@@ -41,7 +41,6 @@ exports.register = function(req, res) {
 exports.newMessage = function(req, res) {
   var members = req.body.members;
   members = members.split(',');
-    console.log(members);
   var query = { $and: [{ subscribers: { $all: members }}, {subscribers: { $size: members.length }}] };
   db.Message.findOne(query, function(err, message) {
     if (message)

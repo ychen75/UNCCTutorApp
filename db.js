@@ -71,8 +71,7 @@ messageSchema.statics.readyMessage = function(messageID, user_ID, callback) {
           data.members += memberNames[x] + ", ";
         data.members += "and " + memberNames[numNames - 1];
       }
-        
-    console.log(data.userID);
+
     data.posts = message.posts;
     for (var i = 0; i < message.posts.length; i++)
     {
@@ -109,7 +108,6 @@ messageSchema.statics.findUserMessages = function(userID, callback) {
       
       var lastPost = messages[i].lastPost;
       if (lastPost) {
-        console.log(lastPost);
         messageInfo[i].lastPoster = messages[i].subscribers[lastPost.posterID].realname;
         messageInfo[i].lastPostText = lastPost.postText;
       }
