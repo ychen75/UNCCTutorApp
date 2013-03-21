@@ -12,6 +12,6 @@
     "stylus": "*",
 		"supervisor": "0.5.x",	
     "connect-mongo": "*",
-    "socket-io": "*"
+    "socket.io": "*"
 	}
 }
