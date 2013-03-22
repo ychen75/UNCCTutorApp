@@ -1,18 +1,12 @@
 extends layout
 
 block content
-  #contentWrapper
-    #titleBar
-      a(href='#', id='trayToggleOpen')
-      h1 Tutor Tracker
-    #searchWrapper
-      input(type='text')#searchBar
-      a(href='#', id='searchButton')
-    #tileNotifications
-      a(href='#', id='tutorTitle', class='liveTile') Tutors
-      a(href='#', id='locationTile', class='liveTile') Locations
-      a(href='#', id='scheduleTile', class='liveTile') Schedule
-      a(href='/messages', id='messageTile', class='liveTile') Messages
-    #username= username
+  a(href='#') 
+  h1 Tutor Tracker
+  a(href='#', id='tutorTitle', class='liveTile') Tutors
+  a(href='#', id='locationTile', class='liveTile') Locations
+  a(href='#', id='scheduleTile', class='liveTile') Schedule
+  a(href='/messages', id='messageTile', class='liveTile') Messages
+  #username= username
     form(action='/logout', method='post')
-      input(type='submit', value='Logout')
+    input(type='submit', value='Logout')

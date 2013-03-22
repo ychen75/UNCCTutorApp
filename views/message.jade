@@ -16,14 +16,4 @@ block content
     input(type='text', id='postText')
     input(type='submit', id='sendBtn', value='Post Message')
     
-    
-block append scripts
-  script(src='/socket.io/socket.io.js')
-  script(src='/javascripts/socketMessagePosted.js')
-  script
-    $(function() {
-      var msgID = '#{messageID}';
-      var userID = '#{userID}';
-      setupSocket(msgID, userID);
-    });
       
