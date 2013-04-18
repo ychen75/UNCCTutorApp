@@ -56,7 +56,17 @@ exports.newMessage = function(req, res) {
   });
 }
 
-//
+// CALENDER
+exports.calender = function(req, res) {
+  res.render ('calender', {
+    title: 'CALENDER NOT OPEN!',
+    msg: 'Come back later'
+   });
+}
+
+
+
+// TEST
 exports.test = function(req, res) {
   console.log(req.body.members);
   res.render('test', {

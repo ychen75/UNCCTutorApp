@@ -14,11 +14,11 @@ input {
 a {
   display: inline-block;
   text-decoration: none;
-  color: #00b7ff;
+  color: #000;
 }
 #contentWrapper {
   width: 400px;
-  background-color: #fff;
+  background-color: #00f1f0;
 }
 #titleBar {
   width: 400px;
@@ -30,10 +30,11 @@ a {
   margin: 0 auto;
 }
 #trayToggleOpen {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 20px;
   margin-top: 5px;
   margin-right: 10px;
+  margin-left: 10px;
   background-color: #c4c4c4;
   float: left;
 }
@@ -41,16 +42,23 @@ a {
   width: 400px;
 }
 #searchBar {
-  width: 350px;
-  height: 20px;
-  margin-right: 5px;
+  width: 400px;
+  height: 40px;
+  margin-right: 0px;
   float: left;
 }
+.textbox {
+  background: #ffc;
+  margin: 10px;
+  max-width: 400px;
+  padding-left: 10px;
+}
 #searchButton {
-  width: 22px;
-  height: 22px;
+  width: 16px;
+  height: 15px;
   background-color: #e3e3e3;
   border: #000 solid 1px;
+  margin-left: 0px;
 }
 #tileNotifications {
   width: 345px;
@@ -63,6 +71,11 @@ a {
   border: #000 solid 1px;
   margin-right: 20px;
   margin-bottom: 20px;
+  background-color: #50ff00;
+}
+.liveTile:Hover {
+  background-color: #00f000;
+  P: 'Message your friends or tutors!';
 }
 #username {
   text-align: center;
@@ -93,14 +106,6 @@ li.postTime {
 li.postText {
   width: 330px;
 }
-.messageBlock {
-  display: block;
-  border: 1px solid #000;
-}
-.messageBlock:hover,
-.messageBlock:active {
-  color: #000;
-}
 .removeMember {
   display: inline-block;
   width: 20px;
@@ -109,4 +114,12 @@ li.postText {
 }
 .ui-helper-hidden-accessible {
   display: none;
+}
+.messageBlock {
+  display: block;
+  border: 1px solid #000;
+}
+.messageBlock:hover,
+.messageBlock:active {
+  color: #000;
 }
