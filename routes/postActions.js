@@ -23,7 +23,12 @@ exports.login = function(req, res) {
 // LOGOUT
 exports.logout = function(req, res) {
   req.session.loggedIn = false;
-  res.redirect('/');
+  var username = 'Not logged in';
+  res.render('index', {
+        title: 'Login Please',
+        msg: 'Login failed, try again',
+        username: username
+      });
 };
 
 // REGISTER

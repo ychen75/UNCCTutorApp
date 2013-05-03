@@ -1,33 +1,17 @@
 extends layout
 
 block content
-  #body
-    #contentWrapper
-      #titleBar
-        a(href='#', id='title') Tutor Tracker
+  #tileBar
+    a(href='#', id='tutorTitle', class='liveTile') '   Tutors'
+    a(href='#', id='locationTile', class='liveTile') Locations
+    .clear
+    a(href='/calender', id='scheduleTile', class='liveTile') Schedule
+    a(href='/messages', id='messageTile', class='liveTile') Messages
+    
+  //
+    #searchWrapper
+      <input name="q" class="textbox" onfocus="if (this.value=='search') this.value = ' '" type="text" maxlength = "400" siz="50" value='search'>
+      #searchBar
+      a(href='#', id='searchButton')
 
-      #navBar
-        ul
-          if username == "Not logged in"
-            li
-              a(href='/login') Login
-          else
-            li
-              a(href='/logout') Logout
-            li
-              a(href='/login') Profile
-    //
-      #searchWrapper
-        <input name="q" class="textbox" onfocus="if (this.value=='search') this.value = ' '" type="text" maxlength = "400" siz="50" value='search'>
-        #searchBar
-        a(href='#', id='searchButton')
-
-       
-      #tileNotifications
-        a(href='#', id='tutorTitle', class='liveTile') '   Tutors'
-        a(href='#', id='locationTile', class='liveTile') Locations
-        a(href='/calender', id='scheduleTile', class='liveTile') Schedule
-        a(href='/messages', id='messageTile', class='liveTile') Messages
-      #username= username
-      form(action='/logout', method='post')
-        input(type='submit', value='Logout')
+   

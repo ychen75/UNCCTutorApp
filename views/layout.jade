@@ -1,8 +1,26 @@
 doctype 5
 html
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    block scripts
-      script(type="text/javascript", src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
-  block content
+  title= title
+  link(rel='stylesheet', href='/stylesheets/style2.css')
+  block scripts
+    script(type="text/javascript", src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
+  #body
+    #contentWrapper
+      #titleBar
+        a(href='#', id='title') Tutor Tracker
+
+      #navBar
+        ul
+          if username == "Not logged in"
+            li
+              a(href='/login') Login
+            li
+              a(href='/register') Register
+          else
+            li
+              a(href='/logout') Logout
+            li
+              a(href='/profile') Profile
+            p #{username}
+      block content

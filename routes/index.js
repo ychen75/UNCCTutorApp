@@ -1,5 +1,4 @@
 var db = require('../db');
-var request = require('request');
 
 // INDEX
 exports.index = function(req, res){
@@ -9,7 +8,6 @@ exports.index = function(req, res){
 
 // LOGIN
 exports.login = function(req, res){
-  console.log('sdjf');
   req.session.loggedIn = req.session.loggedIn || false;
   if (req.session.loggedIn)
     res.redirect('/');
@@ -18,20 +16,6 @@ exports.login = function(req, res){
       title: 'Login Please',
       msg: ""
     });
-}
-
-// LOGOUT
-exports.logout = function(req, res){
-  console.log('enter');
-  request.post({header: {'content-type': 'text/plain'}, 
-    url: "http://localhost/logout", body:"hello"}, function (error, response, body) {
-    if(!error && response.statusCode == 200) {
-      console.log(body);
-    } else {
-      console.log(error);
-    }
-  });
-  console.log("l")
 }
 
 // MESSAGES
