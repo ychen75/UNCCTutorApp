@@ -1,10 +1,13 @@
 extends layout
 
 block content
-  h1 Register as a new user
-  form(action='/register', method='post')
-    p Your username
-    input(type='text', name='username')
-    p Your real name
-    input(type='text', name='realname')
-    input(type='submit', value='Register')
+  #page
+    .infoSection
+      h3 Register as a new user
+      form(action='/register', method='post')
+        p Your username
+        input(type='text', name='username')
+        p Your real name
+        input(type='text', name='realname')
+        input(type='submit', value='Register')
+      msg= msg

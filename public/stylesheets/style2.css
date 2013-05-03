@@ -1,8 +1,8 @@
+/* General, Header, and Index styles */
 #body {
   margin: -8px -8px -8px -8px;
   padding: 0px;
 }
-
 #contentWrapper {
   width: 320px;
   height: 460px;
@@ -92,11 +92,24 @@
   width: 0px;
   height: 0px;
 }
-
-
-/*body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/* Page Styles */
+#page {
+  background: #AE7E16;
 }
+#page .infoSection {
+  width: 89%;
+  background: #AE7E16;
+  margin: 10px 10px 0px 10px;
+  padding: 6px;
+  float: left;
+}
+#error {
+  color: #600500;
+}
+
+
+/* Old */
+
 .hidden {
   display: none;
 }
@@ -111,19 +124,6 @@ a {
   display: inline-block;
   text-decoration: none;
   color: #000;
-}
-#contentWrapper {
-  width: 400px;
-  background-color: #00f1f0;
-}
-#titleBar {
-  width: 400px;
-  height: 40px;
-}
-#titleBar h1 {
-  width: 190px;
-  line-height: 40px;
-  margin: 0 auto;
 }
 #trayToggleOpen {
   width: 40px;

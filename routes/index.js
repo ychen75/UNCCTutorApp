@@ -1,21 +1,29 @@
 var db = require('../db');
+var helper = require('../helper/helper.js');
+
+// Variables common to all pages
+header = function(req, res) {
+  username = (req.session.loggedIn) ? req.session.user.realname : 'Not logged in';
+};
 
 // INDEX
 exports.index = function(req, res){
-  var username = (req.session.loggedIn) ? req.session.user.realname : 'Not logged in';
-  res.render('index', { title: 'Express', username: username});
+  res.render('index', header(req, res));
 };
 
 // LOGIN
 exports.login = function(req, res){
-  req.session.loggedIn = req.session.loggedIn || false;
   if (req.session.loggedIn)
     res.redirect('/');
   else
-    res.render('login', {
-      title: 'Login Please',
-      msg: ""
-    });
+    var obj = helper.merge(header(req, res), {msg: "Username doesn't exist"});
+    res.render('login', obj);
+}
+
+// REGISTER
+exports.register = function(req, res) {
+  var obj = helper.merge(header(req, res), {msg: ""});
+  res.render('register', obj);
 }
 
 // MESSAGES
@@ -40,7 +48,7 @@ exports.messages = function(req, res) {
       });      
     });
   }
-  else res.redirect('/login');
+  else res.redirect('/login', header(req,res));
 }
 
 // MESSAGE
@@ -57,13 +65,6 @@ exports.message = function(req, res){
     });
   }
   else res.redirect('/login');
-}
-
-// REGISTER
-exports.register = function(req, res) {
-  res.render('register', {
-    title: 'Register new user'
-  });
 }
 
 // USER PROFILE

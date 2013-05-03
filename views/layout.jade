@@ -1,26 +1,18 @@
 doctype 5
 html
-  head
-  title= title
-  link(rel='stylesheet', href='/stylesheets/style2.css')
-  block scripts
-    script(type="text/javascript", src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
+  include includes/head
   #body
     #contentWrapper
       #titleBar
-        a(href='#', id='title') Tutor Tracker
+        a(href='/', id='title') Tutor Tracker
 
       #navBar
         ul
           if username == "Not logged in"
-            li
-              a(href='/login') Login
-            li
-              a(href='/register') Register
+            li: a(href='/login') Login
+            li: a(href='/register') Register
           else
-            li
-              a(href='/logout') Logout
-            li
-              a(href='/profile') Profile
+            li: a(href='/logout') Logout
+            li: a(href='/profile') Profile
             p #{username}
       block content

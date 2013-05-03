@@ -12,10 +12,7 @@ exports.login = function(req, res) {
     }
     else
     {
-      res.render('login', {
-        title: 'Login Please',
-        msg: 'Login failed, try again'
-      });
+      res.redirect('login');
     }
   });
 };
@@ -33,7 +30,7 @@ exports.logout = function(req, res) {
 
 // REGISTER
 exports.register = function(req, res) {
-  var newUser = new db.User({ name: req.body.username, realname: req.body.realname });
+  var newUser = new db.User({ name: req.body.username, realname: req.body.realname});
   newUser.save(function(err, newUser) {
     req.session.loggedIn = true;
     req.session.user = newUser;

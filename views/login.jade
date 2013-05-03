@@ -1,9 +1,12 @@
 extends layout
 
 block content
-  p You're not logged in!
-  p Username
-  form(action='/login', method='post')
-    input(type='text',name='username')
-    input(type='submit')
-  p= msg
+  #page
+    .infoSection
+      p You're not logged in!
+      p Username
+      form(action='/login', method='post')
+        input(type='text',name='username')
+        input(type='submit')
+      #error
+        msg= msg
