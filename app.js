@@ -49,6 +49,7 @@ var server = http.createServer(app).listen(app.get('port'), function(){
  *     ROUTES     *
  ******************/
 app.get('/login', routes.login);
+app.get('/logout', routes.logout);
 app.get('/messages', routes.messages);
 app.get('/messages/:id', routes.message);
 app.get('/register', routes.register);

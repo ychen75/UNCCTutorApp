@@ -5,6 +5,7 @@ block content
     #contentWrapper
       #titleBar
         a(href='#', id='title') Tutor Tracker
+
       #navBar
         ul
           if username == "Not logged in"
@@ -12,8 +13,7 @@ block content
               a(href='/login') Login
           else
             li
-              form(action='/logout', method='post')
-                input(type='text') Logout
+              a(href='/logout') Logout
             li
               a(href='/login') Profile
     //

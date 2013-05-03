@@ -9,6 +9,7 @@ exports.index = function(req, res){
 
 // LOGIN
 exports.login = function(req, res){
+  console.log('sdjf');
   req.session.loggedIn = req.session.loggedIn || false;
   if (req.session.loggedIn)
     res.redirect('/');
@@ -21,7 +22,16 @@ exports.login = function(req, res){
 
 // LOGOUT
 exports.logout = function(req, res){
-  request.post({url: "localhost:3000/logout", body:""}, callback);
+  console.log('enter');
+  request.post({header: {'content-type': 'text/plain'}, 
+    url: "http://localhost/logout", body:"hello"}, function (error, response, body) {
+    if(!error && response.statusCode == 200) {
+      console.log(body);
+    } else {
+      console.log(error);
+    }
+  });
+  console.log("l")
 }
 
 // MESSAGES
