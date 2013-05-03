@@ -1,4 +1,5 @@
 var db = require('../db');
+var request = require('request');
 
 // INDEX
 exports.index = function(req, res){
@@ -16,6 +17,11 @@ exports.login = function(req, res){
       title: 'Login Please',
       msg: ""
     });
+}
+
+// LOGOUT
+exports.logout = function(req, res){
+  request.post({url: "localhost:3000/logout", body:""}, callback);
 }
 
 // MESSAGES
